@@ -1,0 +1,11 @@
+on swap hand items:
+		if {org::%player%} is "Enderian":
+			shoot a enderpearl from the player at speed 3
+
+		
+		
+on stepping on water:
+	if {org::%player%} is "Enderian":
+		damage player by 3 hearts
+		
+		
