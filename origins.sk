@@ -5,7 +5,7 @@ on join:
 
 command /Origin <text>:
   trigger:
-    if arg-1 is not "enderian" or "Fox" or "Blazeborn" or "Phantom":
+    if arg-1 is not "Enderian" or "Fox" or "Blazeborn" or "Phantom":
       send "&c&lError:&a The origin you have entered does not seem to exist."
     else:
       set {org::%player%} to arg-1
