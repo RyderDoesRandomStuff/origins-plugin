@@ -1,0 +1,20 @@
+on swap hand items:
+		if {org::%player%} is "Blazeborn":
+			push the player backwards at speed 0.3
+			shoot a fireball from the player at speed 4
+			wait 1 second
+			set the player's health to {_temp}
+			#Lets the player shoot fireballs by crouching and clicking
+
+	
+on combusting:
+	if {org::%player%} is "Blazeborn":
+		apply fire_resistance 2 to the player for 15 seconds
+		else
+		stop
+		
+		
+on stepping on water:
+	damage player by 3 hearts
+		
+		
