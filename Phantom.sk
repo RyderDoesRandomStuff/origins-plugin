@@ -1,0 +1,10 @@
+on join:
+	if {org::%player%} is "Phantom":
+    	set the maximum health of the player to 14
+
+on swap hand items:
+	if {org::%player%} is "Phantom":
+		hide the player from all players
+		wait 30 seconds
+		reveal the player
+
