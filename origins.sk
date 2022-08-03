@@ -1,0 +1,12 @@
+on join:
+  if {org::%player%} does not exist:
+    send "&cHey, it seems you do not have an origin. Please choose one by doing /Origin and then one of the following origins, blazeborn,enderian,fox, phantom"
+    #Gives the player a message if they do not have an origin.
+
+command /Origin <text>:
+  trigger:
+    if arg-1 is not "enderian" or "Fox" or "Blazeborn" or "Phantom":
+      send "&c&lError:&a The origin you have entered does not seem to exist."
+    else:
+      set {org::%player%} to arg-1
+    #Allows the player to change their origin.
