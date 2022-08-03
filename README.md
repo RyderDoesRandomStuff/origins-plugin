@@ -1,0 +1,2 @@
+# origins-plugin
+yes
