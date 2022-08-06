@@ -1,11 +1,31 @@
-on swap hand items:
-	if {org::%player%} is "Fox":
-		push the player upwards at speed 1.2
+on left click:
+	player is sneaking:
+		if {org::%player%} is "Fox":
+			if {foxcooldown::%player's uuid%} is "false":
+				set {foxcooldown::%player's uuid%} to "true"
+				push the player upwards at speed 1.3
+				wait 5 seconds
+				set {foxcooldown::%player's uuid%} to "false"
+			else if {foxcooldown::%player's uuid%} is "true":
+				send "&cThis ability is still on cooldown!" to player
+			else if {foxcooldown::%player's uuid%} is not set:
+				set {foxcooldown::%player's uuid%} to "false"
+			
 		
 
 	
 on jump:
 	if {org::%player%} is "Fox":
 		push the player upwards at speed 0.8
-		
-		
+			
+on respawn:
+	if {org::%player%} is "Fox":
+		set the maximum health of the player to 10
+		set the player's display name to "<yellow>[Fox] <white>%name of player%"
+
+
+on join:
+	if {org::%player%} is "Fox":
+		set the maximum health of the player to 10
+		set the player's display name to "<yellow>[Fox] <white>%name of player%"
+ 
