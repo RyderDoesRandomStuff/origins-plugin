@@ -1,0 +1,30 @@
+on left click:
+	player is sneaking:
+		if {org::%player%} is "Shulker":
+			apply potion of hunger of tier 3 to the player for 999 days
+			#open chest inventory with 1 row named "test" to player
+			#set {_inventory} to chest inventory with 1 row
+			open player's ender chest for player
+
+
+
+
+		
+on join:
+	if {org::%player%} is "Shulker":
+		apply potion of hunger of tier 3 to the player for 999 days 
+
+on respawn:
+	if {org::%player%} is "Shulker":
+		apply potion of hunger of tier 3 to the player for 999 days
+	
+on respawn:
+	if {org::%player%} is "Shulker":
+		set the maximum health of the player to 15
+		set the player's display name to "<purple>[Shulk] <white>%name of player%"
+
+on join:
+	if {org::%player%} is "Shulker":
+		set the maximum health of the player to 15
+		set the player's display name to "<purple>[Shulk] <white>%name of player%"
+		
