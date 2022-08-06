@@ -1,0 +1,25 @@
+
+on join:
+	if {org::%player%} is "elytrian":
+		set chestplate of the player to an elytra
+		set the player's display name to "<light blue>[Elytrian] <white>%name of player%"
+
+on respawn:
+	if {org::%player%} is "elytrian":
+		set chestplate of the player to an elytra
+		set the player's display name to "<light blue>[Elytrian] <white>%name of player%"
+		
+		
+on left click:
+	player is sneaking:
+		if {org::%player%} is "elytrian":
+			if {elytriancooldown::%player's uuid%} is "false":
+				set {elytriancooldown::%player's uuid%} to "true"
+				push the player upwards at speed 2.5
+				wait 15 seconds
+				set {elytriancooldown::%player's uuid%} to "false"
+			else if {elytriancooldown::%player's uuid%} is "true":
+				send "&cThis ability is still on cooldown!" to player
+			else if {elytriancooldown::%player's uuid%} is not set:
+				set {elytriancooldown::%player's uuid%} to "false"
+			
