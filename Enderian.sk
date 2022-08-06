@@ -1,11 +1,34 @@
-on swap hand items:
+on left click:
+	player is sneaking:
 		if {org::%player%} is "Enderian":
-			shoot a enderpearl from the player at speed 3
+			if {blazecooldown::%player's uuid%} is "false":
+				set {blazecooldown::%player's uuid%} to "true"
+				shoot a enderpearl from the player at speed 2.2
+				wait 0.25 seconds
+				set {blazecooldown::%player's uuid%} to "false"
+			else if {blazecooldown::%player's uuid%} is "true":
+				send "&cThis ability is still on cooldown!" to player
+			else if {blazecooldown::%player's uuid%} is not set:
+				set {blazecooldown::%player's uuid%} to "false"
+
 
 		
 		
-on stepping on water:
+on walking on water:
 	if {org::%player%} is "Enderian":
-		damage player by 3 hearts
+		damage player by 2 hearts
+		
+		
+		
+on respawn:
+	if {org::%player%} is "enderian":
+		set the maximum health of the player to 10
+		set the player's display name to "<blue>[Enderian] <white>%name of player%"
+
+on join:
+	if {org::%player%} is "enderian":
+		set the maximum health of the player to 10
+		set the player's display name to "<blue>[Enderian] <white>%name of player%"
+
 		
 		
