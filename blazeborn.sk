@@ -46,8 +46,4 @@ on join:
 		set the maximum health of the player to 10
 		set the player's display name to "<orange>[BlazeBorn] <white>%name of player%"
 		
-on damage:
-    attacker is a player
-    if {org::%attacker%} is "Shulker":
-        health of attacker is less than or equal to 2
-        damage victim by 2 hearts
+
