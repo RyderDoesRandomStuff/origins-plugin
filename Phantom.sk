@@ -1,10 +1,30 @@
 on join:
 	if {org::%player%} is "Phantom":
-    	set the maximum health of the player to 14
+		set the maximum health of the player to 6
 
-on swap hand items:
+on left click:
+	player is sneaking:
+		if {org::%player%} is "Phantom":
+			if {visible::%player's uuid%} is "false":
+				set {visible::%player's uuid%} to "true"
+				hide the player from all players
+				send "&e hidden"
+				apply hunger 4 to the player for 999 days
+			else if {visible::%player's uuid%} is "true":
+				set {visible::%player's uuid%} to "false"
+				remove potion effect of hunger from player's active potion effects
+				reveal the player
+				send "&e revealed"
+			else if {visible::%player's uuid%} is not set:
+				set {visible::%player's uuid%} to "false"
+		
+on respawn:
 	if {org::%player%} is "Phantom":
-		hide the player from all players
-		wait 30 seconds
-		reveal the player
+		set the maximum health of the player to 6
+		set the player's display name to "<pink>[Phantom] <white>%name of player%"
 
+on join:
+	if {org::%player%} is "Phantom":
+		set the maximum health of the player to 6
+		set the player's display name to "<pink>[Phantom] <white>%name of player%"
+	
