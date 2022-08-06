@@ -1,20 +1,53 @@
-on swap hand items:
-		if {org::%player%} is "Blazeborn":
-			push the player backwards at speed 0.3
-			shoot a fireball from the player at speed 4
-			wait 1 second
-			set the player's health to {_temp}
-			#Lets the player shoot fireballs by crouching and clicking
+on left click:
+	player is sneaking:
+		if {org::%player%} is "Blazeborn":		
+			if {blazecooldown::%player's uuid%} is "false":
+				set {blazecooldown::%player's uuid%} to "true"
+				push the player backwards at speed 0.3
+				shoot a fireball from the player at speed 2
+				wait 0.5 seconds
+				set {blazecooldown::%player's uuid%} to "false"
+			else if {blazecooldown::%player's uuid%} is "true":
+				send "&cThis ability is still on cooldown!" to player
+			else if {blazecooldown::%player's uuid%} is not set:
+				set {blazecooldown::%player's uuid%} to "false"
+
+
+
+
+
+
 
 	
 on combusting:
 	if {org::%player%} is "Blazeborn":
-		apply fire_resistance 2 to the player for 15 seconds
-		else
-		stop
+		apply fire resistance 2 to the player for 999 days
 		
+on join:
+	if {org::%player%} is "Blazeborn":
+		apply potion of fire resistance of tier 2 to the player for 999 days
+
+on respawn:
+	if {org::%player%} is "Blazeborn":
+		apply potion of fire resistance of tier 2 to the player for 999 days
 		
-on stepping on water:
-	damage player by 3 hearts
+on walking on water:
+	if {org::%player%} is "Blazeborn":
+		damage player by 2 hearts
+	
+on respawn:
+	if {org::%player%} is "Blazeborn":
+		set the maximum health of the player to 10
+		set the player's display name to "<orange>[BlazeBorn] <white>%name of player%"
+
+
+on join:
+	if {org::%player%} is "Blazeborn":
+		set the maximum health of the player to 10
+		set the player's display name to "<orange>[BlazeBorn] <white>%name of player%"
 		
-		
+on damage:
+    attacker is a player
+    if {org::%attacker%} is "Shulker":
+        health of attacker is less than or equal to 2
+        damage victim by 2 hearts
